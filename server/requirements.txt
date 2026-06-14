@@ -8,5 +8,4 @@ pyjwt
 python-multipart
 email-validator
 
-google-genai
-google-generativeai
+openai
