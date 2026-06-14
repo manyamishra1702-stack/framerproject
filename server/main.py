@@ -17,7 +17,7 @@ from api.routes import auth, farming, user
 # CORS configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # In production, restrict this
+    allow_origins=["https://framerproject-rkc8.onrender.com"],
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
