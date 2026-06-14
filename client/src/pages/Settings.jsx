@@ -5,6 +5,8 @@ import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { BrandLogo } from '../components/BrandLogo';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || (window.location.hostname === 'localhost' ? 'http://localhost:8000' : 'https://agrix-1coj.onrender.com');
+
 export default function Settings() {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
@@ -30,7 +32,7 @@ export default function Settings() {
       return;
     }
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/user/me`, {
+      const response = await fetch(`${API_BASE_URL}/api/user/me`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (response.ok) {
@@ -65,7 +67,7 @@ export default function Settings() {
     
     try {
       if (farmDescription.trim()) {
-        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/user/farm-description/text`, {
+        const response = await fetch(`${API_BASE_URL}/api/user/farm-description/text`, {
           method: 'POST',
           headers: { 
             'Authorization': `Bearer ${token}`,
